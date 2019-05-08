@@ -1,0 +1,51 @@
+.title {
+    display: flex;
+    border: 1px solid black;
+    height: 8%;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.title h1 {
+    text-align: right;
+}
+
+.semana {
+    display: flex;
+    border: 1px solid black;
+    height: 46%;
+}
+.semana .row-1 {
+    border: 1px solid black;
+    height: 30px;
+    padding: 3px 0;
+}
+.semana .row-1 .data {
+    display: flex;
+}
+.semana .row-1 .data label{
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    padding-left: 15px;
+    padding-right: 35px;
+    background-color: rgb(0, 43, 78);
+    color: #fff;
+}
+.semana .row-1 .presidencia {
+}
+
+/* style da linha e seus atributos */
+.row {
+    display: flex;
+    width: 100%;
+}
+.row .col {
+    height: 100%;
+}
+.row .col:first-child {
+    width: 60%;
+}
+.row .col:last-child {
+    width: 40%;
+}
