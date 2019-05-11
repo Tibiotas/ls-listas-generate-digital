@@ -1,6 +1,5 @@
 .subpage > .title {
     display: flex;
-    border: 1px solid black;
     height: 8%;
     flex-direction: column;
     justify-content: space-around;
@@ -12,13 +11,14 @@
 
 .semana {
     display: flex;
-    border: 1px solid black;
     height: 46%;
     flex-direction: column;
+    border-top: 4px solid black;
 }
 .semana .row-1 {
-    border: 1px solid black;
     height: 30px;
+}
+.semana .row-1.sub {
     padding: 3px 0;
 }
 .semana .row .title label{
@@ -32,7 +32,7 @@
 }
 .semana .row .data label{
     background-color: #002b4e;
-    width: 75%
+    width: 90%
 }
 .semana .row .tesouros label{
     background-color: #5a6a70;
@@ -59,9 +59,74 @@
     display: flex;
     height: 100%;
 }
+.row .col .label {
+    text-align: right;
+    padding-right: 10px;
+}
+.row .col .label,
+.row .col .value {
+    width: 50%;
+}
+
+.row .col .label,
+.row .col .value {
+    display: flex;
+    align-self: center;
+}
+.row .col .value select,
+.row .col .label label {
+    width: 100%;   
+    height: 100%; 
+    font-weight: bold;
+}
+.row .col .label label  {
+    color: #5a6a70;
+    font-size: 11px;
+}
+.row .col .value select {
+    font-size: 12px;
+    text-align-last:center;
+}
 .row .col:first-child {
     width: 60%;
 }
 .row .col:last-child {
     width: 40%;
+}
+
+/* Estilizando lista */
+ul {
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+ul .col:first-child {
+    padding-left: 40px;
+}
+ul li label {
+    color: black;
+}
+
+ul li.item-data,
+ul li.item-designacoes {
+    color: #002b4e;
+}
+ul li.item-tesouros {
+    color: #5a6a70;
+}
+ul li.item-faca-seu-melhor {
+    color: #c18626;
+}
+ul li.item-vida-crista {
+    color: #961526;
+}
+
+.group-date > div {
+    display: flex;
+    flex-direction: row;
+}
+.group-date > div > button{
+    margin: 8px;
 }

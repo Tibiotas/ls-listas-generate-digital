@@ -1,12 +1,16 @@
-.page {
+
+.page,
+.box {
     width: 21cm;
-    min-height: 29.7cm;
     padding: 1cm;
     margin: 1cm auto;
     border: 1px #D3D3D3 solid;
     border-radius: 5px;
     background: white;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.page {
+    min-height: 29.7cm;
 }
 .subpage {
     height: 276mm;
@@ -16,7 +20,14 @@
     size: A4;
     margin: 0;
 }
+
 @media print {
+
+    .no-print,
+    .no-print * {
+        display: none !important;
+    }
+
     .page {
         margin: 0;
         border: initial;
@@ -26,5 +37,11 @@
         box-shadow: initial;
         background: initial;
         page-break-after: always;
+    }
+
+    select {
+        border: none;
+        background: none;
+        -webkit-appearance: none;
     }
 }
