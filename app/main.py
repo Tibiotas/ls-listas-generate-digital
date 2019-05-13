@@ -14,8 +14,7 @@ from datetime import timedelta
 PORT_API = 5000
 PORT_WEB = 5001
 
-
-def run_app1():
+def run_app2():
     app = Flask(__name__, static_url_path='')
     CORS(app)
 
@@ -23,7 +22,7 @@ def run_app1():
     def semanas(qtd, dia, mes, ano):
         semanas = []
         datePrincipal = date(ano, mes, dia)
-
+        data = {}
 
         for x in range(0, qtd):
             semanas.append([]);
@@ -33,7 +32,7 @@ def run_app1():
                 response = urlopen(link)
                 content = response.read()
                 soup = BeautifulSoup(content, 'html.parser')
-                print(soup.find(id='p1').text)
+                
                 data = {
                     'semana': soup.find(id='p1').text ,
                     'biblia_semana': soup.find(id='p2').text,
@@ -86,10 +85,14 @@ def run_app1():
     app.config.update(JSON_AS_ASCII=False)
     app.run(debug=True, port=PORT_API, use_reloader=False)
 
-def run_app2():
-    Handler = SimpleHTTPServer.SimpleHTTPRequestHandler
-    httpd = SocketServer.TCPServer(("", PORT_WEB), Handler)
-    print "Iniciando servidor Web", PORT_WEB
+class HTTPRequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
+    def end_headers(self):
+        self.send_header('Access-Control-Allow-Origin', '*')
+        SimpleHTTPServer.SimpleHTTPRequestHandler.end_headers(self)
+
+def run_app1():
+    httpd = SocketServer.TCPServer(("", PORT_WEB), HTTPRequestHandler)
+    print "Iniciando gerador de lista no link: http://localhost:", PORT_WEB
     httpd.serve_forever()
 
 t1 = threading.Thread(target=run_app1)

@@ -1,0 +1,1 @@
+pip install peewee --user && pip install urllib3 --user && pip install Flask --user && pip install Flask-Cors --user && pip install beautifulsoup4 --user && pip install httpserver --user && pip install win-unicode-console --user

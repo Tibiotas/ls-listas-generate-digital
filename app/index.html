@@ -455,7 +455,7 @@
                 semanas: []
             },
             created() {
-                axios.get('http://127.0.0.1:5001/static/json/config.json')
+                axios.get('http://localhost:5001/static/json/config.json')
                     .then(response => {
                         this.constantes = response.data;
                         this.atualizar();
@@ -466,7 +466,7 @@
                 },
                 atualizar() {
                     this.semanas = [];
-                    let url = `http://127.0.0.1:5000/semanas/${this.constantes.qtdPaginas}/${this.formatDate(this.dataVisualizar)}`;
+                    let url = `http://localhost:5000/semanas/${this.constantes.qtdPaginas}/${this.formatDate(this.dataVisualizar)}`;
                     axios.get(url)
                         .then(response => {
                             this.semanas = response.data;
