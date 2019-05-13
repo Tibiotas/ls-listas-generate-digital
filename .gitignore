@@ -1,3 +1,5 @@
 pre-install/windows/python*
 *.doc
 *.docx
+*.rar
+*.zip
