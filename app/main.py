@@ -48,8 +48,8 @@ def run_app2():
                     'faca_seu_melhor_2': soup.find(id='section3').findChildren('p')[1].strong.text.replace(': ', '') if len(soup.find(id='section3').findChildren('p')) > 1 else None,
                     'faca_seu_melhor_3': soup.find(id='section3').findChildren('p')[2].strong.text.replace(': ', '') if len(soup.find(id='section3').findChildren('p')) > 2 else None,
                     'faca_seu_melhor_4': soup.find(id='section3').findChildren('p')[3].strong.text.replace(': ', '') if len(soup.find(id='section3').findChildren('p')) > 3 else None,
-                    'nossa_vida_crista_1': soup.find(id='section4').findChildren('p')[1].strong.text.replace(': ', '') if len(soup.find(id='section4').findChildren('p')[1].findChildren('strong')) < 2 else soup.find(id='section4').findChildren('p')[1].findChildren('strong')[1].text,
-                    'nossa_vida_crista_2': soup.find(id='section4').findChildren('p')[2].strong.text.replace(': ', '') if len(soup.find(id='section4').findChildren('p')) > 5 else None,
+                    'nossa_vida_crista_1': soup.find(id='section4').findChildren('p')[1].strong.text if len(soup.find(id='section4').findChildren('p')[1].findChildren('strong')) < 2 else soup.find(id='section4').findChildren('p')[1].findChildren('strong')[1].text,
+                    'nossa_vida_crista_2': (soup.find(id='section4').findChildren('p')[2].strong.text if len(soup.find(id='section4').findChildren('p')[2].findChildren('strong')) < 2 else soup.find(id='section4').findChildren('p')[2].findChildren('strong')[1].text) if len(soup.find(id='section4').findChildren('p')) > 5 else None,
                 }
                 semanas[x][y] = data
                 datePrincipal = datePrincipal + timedelta(days=7)

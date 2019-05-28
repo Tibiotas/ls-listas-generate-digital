@@ -34,13 +34,13 @@
             </form>
         </div>
         <div class="book">
-            <div class="page" v-for="pagina in semanas">
+            <div class="page" v-for="(pagina, i1) in semanas">
                 <div class="subpage">
                     <div class="title">
                         <h1>{{ constantes.titulo }}</h1>
                         <h4>LS - GUAIANASES</h4>
                     </div>
-                    <div class="semana" v-for="semana in pagina">
+                    <div class="semana" v-for="(semana, i2) in pagina" v-if="constantes.exibeUltimaSemana ? true : !((i1 + 1) == semanas.length && (i2 + 1) == pagina.length)">
                         <div class="row row-1 sub">
                             <div class="col data title">
                                 <label>{{ semana.semana.toUpperCase() }} |
@@ -270,7 +270,7 @@
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <li class="item-vida-crista"><label>{{ semana.nossa_vida_crista_1 }}: </label>
+                                    <li class="item-vida-crista"><label>{{ semana.nossa_vida_crista_1 }} </label>
                                     </li>
                                 </div>
                                 <div class="col">
@@ -288,7 +288,7 @@
                             </div>
                             <div class="row" v-if="semana.nossa_vida_crista_2">
                                 <div class="col">
-                                    <li class="item-vida-crista"><label>{{ semana.nossa_vida_crista_2 }}: </label>
+                                    <li class="item-vida-crista"><label>{{ semana.nossa_vida_crista_2 }} </label>
                                     </li>
                                 </div>
                                 <div class="col">
@@ -470,7 +470,6 @@
                     axios.get(url)
                         .then(response => {
                             this.semanas = response.data;
-                            console.log(this.semanas);
                         });
                 },
                 formatDate(date) {
